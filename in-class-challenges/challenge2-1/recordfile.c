@@ -7,7 +7,7 @@
 #define RECORD_SIZE 32  // bytes
 
 
-void seek_with_offset(int fd, int record_num){
+void seek_record(int fd, int record_num){
     int offset = RECORD_SIZE * record_num;
     lseek(fd, offset, SEEK_SET);
 }
@@ -16,17 +16,17 @@ void seek_with_offset(int fd, int record_num){
  */
 void read_record(int fd, int record_num, char *buffer)
 {
-    seek_with_offset(fd, record_num);
+    seek_record(fd, record_num);
     read(fd, buffer, RECORD_SIZE);
     
 }
 
 /**
- * Read the record from the buffer
+ * Write the record from the buffer
  */
 void write_record(int fd, int record_num, char *buffer)
 {
-    seek_with_offset(fd, record_num);
+    seek_record(fd, record_num);
     write(fd, buffer, RECORD_SIZE);
 
 }
