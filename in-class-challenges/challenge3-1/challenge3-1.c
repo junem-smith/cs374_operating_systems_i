@@ -10,9 +10,11 @@ int main(void)
 
     if(pid == 0){
         // fork is a child
-        printf("I'm the parent\n");
-    } else {
         printf("I'm the child\n");
+    } else {
+        // fork is a parent
+        printf("I'm the parent\n");
+        
     }
     printf("We're done\n");
 
