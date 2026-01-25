@@ -24,8 +24,18 @@ int main()
     }
     while ((token = strtok(NULL, " \n")) != NULL);
     
-    run_command(tokens);
-    
+    if (strcmp(tokens[0], "cd") == 0){
+        int c = chdir(tokens[1]);
+        if (c==-1){
+            perror("No such directory");
+            exit(1);
+        }
+    } else if (strcmp(tokens[0], "exit") == 0){
+        exit(0);
+    }
+    else{
+        run_command(tokens);
+    }
 
 }
 
@@ -44,5 +54,6 @@ int run_command(char *tokens[]) {
     }
     
 }
+
 
 
