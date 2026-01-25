@@ -36,6 +36,8 @@ int run_command(char *tokens[]) {
     if(pid == 0){
         // fork is a child
         execvp(cmd, tokens);
+        perror("Command execution failed.");
+        exit(1);
     } else {
         // fork is a parent
         wait(NULL);
