@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/wait.h>
 //  fork() returns 0 to child process, child PID to the parent
 
 int main() {
@@ -20,7 +21,7 @@ int main() {
         close(pfds[1]);
         int bytes_read = read(pfds[0], buf, sizeof buf);
         write(1, buf, bytes_read);
-        wait(0);
+        wait(NULL);
     }
 
 }
