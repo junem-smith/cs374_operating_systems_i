@@ -27,8 +27,7 @@ int main(void) {
         .sa_flags = 0
     }
     sigemptyset(&sa.sa_mask);
-    puts("^C locked out for 5 seconds! Try it!\n");
-    sleep(5);
+    puts("^C reenabled! Try it!");
     sleep(10);
     
 }
