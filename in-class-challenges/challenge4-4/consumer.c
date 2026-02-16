@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     while(1){
         int bytes = read(fd, buf, sizeof buf);
-        printf("%s\n",buf);
+        printf("%s\n", buf);
         if (bytes == -1){
             perror("Error reading file");
         }
