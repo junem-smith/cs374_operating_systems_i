@@ -18,8 +18,8 @@ void *run1(void *arg)
         pthread_mutex_lock(&lock_a);
         pthread_mutex_lock(&lock_b);    // Deadlock
         a[i]++;
-        pthread_mutex_unlock(&lock_a);
         pthread_mutex_unlock(&lock_b);
+        pthread_mutex_unlock(&lock_a);
         
     }
 
@@ -35,8 +35,8 @@ void *run2(void *arg)
         pthread_mutex_lock(&lock_b);    
            
         a[i]++;
-        pthread_mutex_unlock(&lock_a);
         pthread_mutex_unlock(&lock_b);
+        pthread_mutex_unlock(&lock_a);
         
     }
 
