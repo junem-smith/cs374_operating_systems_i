@@ -9,6 +9,10 @@ int count = 0;
 
 void *run1(void *arg)
 {
+    (void)arg;
+
+    sleep(1);
+
     while (1){
         pthread_mutex_lock(&my_mutex);
 
@@ -29,6 +33,7 @@ void *run1(void *arg)
 
 void *run2(void *arg)
 {
+    (void)arg;
     pthread_mutex_lock(&my_mutex);
 
     while (count < 5) {
